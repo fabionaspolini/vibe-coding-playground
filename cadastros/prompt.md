@@ -3,8 +3,8 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
 ## Stack
 
 - dotnet:
-    - EntityFramework: Library principal para comunicar com banco de dados.
-    - xUnit: Library para testes unitários.
+    - `Microsoft.EntityFrameworkCore`: Library principal para comunicar com banco de dados.
+    - `xunit.v3`: Library para testes unitários.
 - PostgreSQL: Como banco de dados principal.
 - Kafka: Para gerar eventos de CRUD.
 
