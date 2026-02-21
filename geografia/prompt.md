@@ -13,7 +13,7 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
 - Código da aplicação deve ficar na pasta `src/`.
 - Código de testes unitários deve ficar na pasta `tests/`.
 - Crie um projeto simples e direto ao ponto:
-  - Se baseie em boas práticas de desenvolvimento de software, porém não implemente-as ao pé da letra.
+  - Se baseie em boas práticas de desenvolvimento de software, porém não as implemente literalmente.
   - Evite interfaces e abstrações desnecessárias que as boas práticas possam lhe induzir a criar. Utilize isso apenas se for estritamente necessário.
 - API
   - Utilize Controllers tradicionais para rotas de API.
@@ -21,7 +21,7 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
   - Rotas de exclusão devem atualizar o atributo `Active` da entidade para `false`. 
 - Eventos de CRUD gerados no Kafka:
   - Sempre adicionar o "Id" da entidade, como "Key" da mensagem do Kafka.
-  - Nome do tópico segue o padrão `geographic.<nome-entidade>`. Exemplo: "geographic.county"
+  - Nome do tópico segue o padrão `geografia.<nome-entidade>`. Exemplo: "geografia.pais"
 
 ## Sobre a aplicação
 
@@ -34,33 +34,33 @@ Ela deve fornecer APIs REST para CRUD (create, read, update, delete).
 Abaixo definicação de entidades e seus atributos.
 Isso compoẽ o domínio da aplicação e para cada uma deve existir a classe de entidade, model para request/response de api e migrations para controle de versionamento do banco de dados.
 
-### Country
+### Pais
 
 **Objetivo**: Gerenciar cadastro de paises.
 
 | Atributo      | Data Type | Descrição                                                                    | Exemplo           |
 |---------------|-----------|------------------------------------------------------------------------------|-------------------|
 | Id            | String(2) | Udentificador único, sendo no formato do código ISO 3166-1 alpha-2 (Padrão). | "BR", "US"        |
-| Name          | String    | Nome comum do país.                                                          | "Brasil"          |
-| IsoCode3      | String(3) | Código ISO 3166-1 alpha-3.                                                   | "BRA"             |
-| NumericCode   | Integer   | Código numérico da ONU.                                                      | 076               |
-| PhoneCode     | String    | DDI (Código de discagem).                                                    | "+55"             |
-| Currency      | String(3) | Código da moeda (ISO 4217).                                                  | "BRL"             |
+| Nome          | String    | Nome comum do país.                                                          | "Brasil"          |
+| CodigoISO3    | String(3) | Código ISO 3166-1 alpha-3.                                                   | "BRA"             |
+| CodigoONU     | Integer   | Código numérico da ONU.                                                      | 076               |
+| CodigoDDI     | String    | DDI (Código de discagem).                                                    | "+55"             |
+| CodigoMoeda   | String(3) | Código da moeda (ISO 4217).                                                  | "BRL"             |
 | DefaultLocale | String    | Idioma principal.                                                            | "pt-BR", "en-US"  |
-| Active        | Boolean   | Indicador se o registro ainda é válido                                       | "true" ou "false" |
+| Ativo         | Boolean   | Indicador se o registro ainda é válido                                       | "true" ou "false" |
 
-### State
+### Estado
 
 **Objetivo**: Gerenciar cadastro de estados.
 
-| Atributo  | Data Type   | Descrição                                                                | Exemplo                                           |
-|-----------|-------------|--------------------------------------------------------------------------|---------------------------------------------------|
-| Id        | String(6)   | Identificador único, sendo no formato do código ISO 3166-2               | "BR-SP", "BR-SC", "BR-PR", "US-AK"                |
-| CountryId | String(2)   | Referência a entidade `Country`.                                         |                                                   |
-| Name      | String      | Nome do estado                                                           | "São Paulo", "Santa Catarina", "Paraná", "Alaska" |
-| Code      | String      | Sigla nacional do estado (Código ISO 3166-2 sem a parte inicial do país) | "SP", "SC", "PR", "AK"                            |
-| Category  | Enum/String | Tipo                                                                     | "STATE", "PROVINCE", "DEPARTMENT", "DISTRICT".    |
-| Active    | Boolean     | Indicador se o registro ainda é válido                                   | "true" ou "false"                                 |
+| Atributo | Data Type   | Descrição                                                                 | Exemplo                                           |
+|----------|-------------|---------------------------------------------------------------------------|---------------------------------------------------|
+| Id       | String(6)   | Identificador único, sendo no formato do código ISO 3166-2                | "BR-SP", "BR-SC", "BR-PR", "US-AK"                |
+| PaisId   | String(2)   | Referência a entidade `Pais`.                                             |                                                   |
+| Nome     | String      | Nome do estado.                                                           | "São Paulo", "Santa Catarina", "Paraná", "Alaska" |
+| Sigla    | String      | Sigla nacional do estado (Código ISO 3166-2 sem a parte inicial do país). | "SP", "SC", "PR", "AK"                            |
+| Tipo     | Enum/String | Tipo da subdivisão no país.                                               | "STATE", "PROVINCE", "DEPARTMENT", "DISTRICT".    |
+| Ativo    | Boolean     | Indicador se o registro ainda é válido.                                   | "true" ou "false"                                 |
 
 **Category**
 
@@ -69,17 +69,16 @@ Para evitar conflitos de siglas (como "SP" que poderia existir em outro país), 
 
 Exemplo: Em vez de apenas SP, o código único seria BR-SP.
 
-### City
+### Cidade
 
 **Objetivo**: Gerenciar cadastro de cidades.
 
-| Atributo   | Data Type | Descrição                              | Exemplo           |
-|------------|-----------|----------------------------------------|-------------------|
-| Id         | UUID      | Identificador único.                   | uuid-v7           | 
-| StateId    | String(6) | Referência a `State`.                  |                   | 
-| Name       | String    | Nome da cidade.                        |                   | 
-| PostalCode | String    | CEP/Zip local.                         |                   | 
-| Latitude   | Decimal   | Coordenada para mapas e logística.     |                   | 
-| Longitude  | Decimal   | Coordenada para mapas e logística.     |                   | 
-| Active     | Boolean   | Indicador se o registro ainda é válido | "true" ou "false" |
-
+| Atributo     | Data Type | Descrição                              | Exemplo           |
+|--------------|-----------|----------------------------------------|-------------------|
+| Id           | UUID      | Identificador único.                   | uuid-v7           | 
+| EstadoId     | String(6) | Referência a `Estado`.                 |                   | 
+| Nome         | String    | Nome da cidade.                        |                   | 
+| CodigoPostal | String    | CEP/Zip local.                         |                   | 
+| Latitude     | Decimal   | Coordenada para mapas e logística.     |                   | 
+| Longitude    | Decimal   | Coordenada para mapas e logística.     |                   | 
+| Ativo        | Boolean   | Indicador se o registro ainda é válido | "true" ou "false" |
