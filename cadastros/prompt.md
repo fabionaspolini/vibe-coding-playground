@@ -36,17 +36,16 @@ Isso compoẽ o domínio da aplicação e para cada uma deve existir a classe de
 
 **Objetivo**: Gerenciar cadastro de paises.
 
-| Atributo      | Data Type | Descrição                              | Exemplo           |
-|---------------|-----------|----------------------------------------|-------------------|
-| Id            | UUID      | Identificador único interno.           | uuid-v7           |
-| Name          | String    | Nome comum do país.                    | "Brasil"          |
-| IsoCode2      | String(2) | Código ISO 3166-1 alpha-2 (Padrão).    | "BR"              |
-| IsoCode3      | String(3) | Código ISO 3166-1 alpha-3.             | "BRA"             |
-| NumericCode   | Integer   | Código numérico da ONU.                | 076               |
-| PhoneCode     | String    | DDI (Código de discagem).              | "+55"             |
-| Currency      | String(3) | Código da moeda (ISO 4217).            | "BRL"             |
-| DefaultLocale | String    | Idioma principal.                      | "en-CA", "pt-BR"  |
-| Active        | Boolean   | Indicador se o registro ainda é válido | "true" ou "false" |
+| Atributo      | Data Type | Descrição                                                                    | Exemplo           |
+|---------------|-----------|------------------------------------------------------------------------------|-------------------|
+| Id            | String(2) | Udentificador único, sendo no formato do código ISO 3166-1 alpha-2 (Padrão). | "BR", "US"        |
+| Name          | String    | Nome comum do país.                                                          | "Brasil"          |
+| IsoCode3      | String(3) | Código ISO 3166-1 alpha-3.                                                   | "BRA"             |
+| NumericCode   | Integer   | Código numérico da ONU.                                                      | 076               |
+| PhoneCode     | String    | DDI (Código de discagem).                                                    | "+55"             |
+| Currency      | String(3) | Código da moeda (ISO 4217).                                                  | "BRL"             |
+| DefaultLocale | String    | Idioma principal.                                                            | "pt-BR", "en-US"  |
+| Active        | Boolean   | Indicador se o registro ainda é válido                                       | "true" ou "false" |
 
 ### State
 
@@ -54,11 +53,10 @@ Isso compoẽ o domínio da aplicação e para cada uma deve existir a classe de
 
 | Atributo  | Data Type   | Descrição                                                                | Exemplo                                           |
 |-----------|-------------|--------------------------------------------------------------------------|---------------------------------------------------|
-| Id        | UUID        | Identificador único.                                                     | uuid-v7                                           |
-| CountryId | UUID        | Referência a entidade `Country`.                                         | uuid-v7                                           |
+| Id        | String(6)   | Identificador único, sendo no formato do código ISO 3166-2               | "BR-SP", "BR-SC", "BR-PR", "US-AK"                |
+| CountryId | String(2)   | Referência a entidade `Country`.                                         |                                                   |
 | Name      | String      | Nome do estado                                                           | "São Paulo", "Santa Catarina", "Paraná", "Alaska" |
 | Code      | String      | Sigla nacional do estado (Código ISO 3166-2 sem a parte inicial do país) | "SP", "SC", "PR", "AK"                            |
-| IsoCode   | String      | Código ISO 3166-2                                                        | "BR-SP", "BR-SC", "BR-PR", "US-AK"                |
 | Category  | Enum/String | Tipo                                                                     | "STATE", "PROVINCE", "DEPARTMENT", "DISTRICT".    |
 | Active    | Boolean     | Indicador se o registro ainda é válido                                   | "true" ou "false"                                 |
 
@@ -76,7 +74,7 @@ Exemplo: Em vez de apenas SP, o código único seria BR-SP.
 | Atributo   | Data Type | Descrição                              | Exemplo           |
 |------------|-----------|----------------------------------------|-------------------|
 | Id         | UUID      | Identificador único.                   | uuid-v7           | 
-| StateId    | UUID      | Referência a `State`.                  | uuid-v7           | 
+| StateId    | String(6) | Referência a `State`.                  |                   | 
 | Name       | String    | Nome da cidade.                        |                   | 
 | PostalCode | String    | CEP/Zip local.                         |                   | 
 | Latitude   | Decimal   | Coordenada para mapas e logística.     |                   | 
