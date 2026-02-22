@@ -3,14 +3,19 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
 ## Stack
 
 - dotnet:
-  - Use target framewerk `net10.0`.
-  - Todas dependências de libraries deve ser na última versão estável disponível. 
-  - `Microsoft.EntityFrameworkCore`: Library principal para comunicar com banco de dados.
-  - `xunit.v3`: Library para testes unitários.
+  - Usar target framework `net10.0`.
+  - Para projeto API:
+    - Todas dependências de libraries deve ser na última versão estável disponível. 
+    - `Microsoft.EntityFrameworkCore`: Library principal para comunicar com banco de dados. 
+    - `Microsoft.AspNetCore.OpenApi`: Library para gerar contrato swagger. Utilize **obrigatóriamente** ela.
+      - Essa library utiliza `services.AddOpenApi()` e `app.MapOpenApi()` para configurar o contrato swagger/openapi.
+  - Para projeto de testes:
+    - `xunit.v3`: Library para testes unitários.
+    - `FakeItEasy`: Library para mock de objetos.
 - PostgreSQL: Como banco de dados principal.
 - Kafka: Para gerar eventos de CRUD.
 
-## Instruções gerais sobre design de código
+## Instruções gerais
 
 - Código da aplicação deve ficar na pasta `src/`.
 - Código de testes unitários deve ficar na pasta `tests/`.
@@ -26,6 +31,9 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
   - Nome do tópico segue o padrão `geografia.<nome-entidade>`. Exemplo: "geografia.pais"
 - Crie extensions methods para realizar conversões de DTOs.
 - Gere o arquivo de soluton no formato `slnx`.
+- Adicione XML documentation para todos os campos das entidades de dominio e DTO, e sempre que útil nos demais locais.
+- Não gere código de migrations, invés disso, execute a tool `dotnet ef` em meu computador para criar o arquivo de migration inicial.
+- Não criar arquivo `.gitignore`.
 
 ## Sobre a aplicação
 
@@ -35,8 +43,8 @@ Ela deve fornecer APIs REST para CRUD (create, read, update, delete).
 
 ## Entidades
 
-Abaixo definicação de entidades e seus atributos.
-Isso compoẽ o domínio da aplicação e para cada uma deve existir a classe de entidade, model para request/response de api e migrations para controle de versionamento do banco de dados.
+Abaixo definição de entidades e seus atributos.
+Isso será o domínio da aplicação e para cada uma deve existir a classe de entidade, model para request/response de api, e por fim executar o comando para criar o migration em meu computador.
 
 ### Pais
 
