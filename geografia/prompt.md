@@ -3,8 +3,9 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
 ## Stack
 
 - dotnet:
-    - `Microsoft.EntityFrameworkCore`: Library principal para comunicar com banco de dados.
-    - `xunit.v3`: Library para testes unitários.
+  - Versão 10.0, com versões mais recentes de todas dependências de libraries. 
+  - `Microsoft.EntityFrameworkCore`: Library principal para comunicar com banco de dados.
+  - `xunit.v3`: Library para testes unitários.
 - PostgreSQL: Como banco de dados principal.
 - Kafka: Para gerar eventos de CRUD.
 
@@ -22,6 +23,7 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
 - Eventos de CRUD gerados no Kafka:
   - Sempre adicionar o "Id" da entidade, como "Key" da mensagem do Kafka.
   - Nome do tópico segue o padrão `geografia.<nome-entidade>`. Exemplo: "geografia.pais"
+- Crie extensions methods para realizar conversões de DTOs.
 
 ## Sobre a aplicação
 
