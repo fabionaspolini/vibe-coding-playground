@@ -3,7 +3,8 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
 ## Stack
 
 - dotnet:
-  - Versão 10.0, com versões mais recentes de todas dependências de libraries. 
+  - Use target framewerk `net10.0`.
+  - Todas dependências de libraries deve ser na última versão estável disponível. 
   - `Microsoft.EntityFrameworkCore`: Library principal para comunicar com banco de dados.
   - `xunit.v3`: Library para testes unitários.
 - PostgreSQL: Como banco de dados principal.
@@ -24,6 +25,7 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
   - Sempre adicionar o "Id" da entidade, como "Key" da mensagem do Kafka.
   - Nome do tópico segue o padrão `geografia.<nome-entidade>`. Exemplo: "geografia.pais"
 - Crie extensions methods para realizar conversões de DTOs.
+- Gere o arquivo de soluton no formato `slnx`.
 
 ## Sobre a aplicação
 
