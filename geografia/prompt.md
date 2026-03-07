@@ -1,4 +1,4 @@
-Você é um agente especialista em desenvolvimento de software. Sua tarefa é implementar uma aplicação nova.
+`Você é um agente especialista em desenvolvimento de software. Sua tarefa é implementar uma aplicação nova.
 
 ## Stack
 
@@ -47,6 +47,8 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
   - Gere o arquivo de soluton no formato `slnx`.
   - Adicione XML documentation para todos os campos das entidades de dominio e DTO, e sempre que útil nos demais locais.
   - Não gere código de migrations, invés disso, execute a tool `dotnet ef` em meu computador para criar o arquivo de migration inicial.
+  - Para métodos de apenas uma instrução, utilize expression method.
+  - Utilize file scoped namespace.
 - **Outras instruções:**
   - Não criar arquivo `.gitignore`.
 
