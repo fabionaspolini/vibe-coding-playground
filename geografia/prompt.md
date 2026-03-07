@@ -17,23 +17,38 @@ Você é um agente especialista em desenvolvimento de software. Sua tarefa é im
 
 ## Instruções gerais
 
-- Código da aplicação deve ficar na pasta `src/`.
-- Código de testes unitários deve ficar na pasta `tests/`.
-- Crie um projeto simples e direto ao ponto:
+- **Diretórios**:
+  - Código da aplicação deve ficar na pasta `src/`.
+  - Código de testes unitários deve ficar na pasta `tests/`.
+- **Crie um projeto simples e direto ao ponto**:
   - Se baseie em boas práticas de desenvolvimento de software, porém não as implemente literalmente.
   - Evite interfaces e abstrações desnecessárias que as boas práticas possam lhe induzir a criar. Utilize isso apenas se for estritamente necessário.
-- API
+- **API:**
   - Utilize Controllers tradicionais para rotas de API.
-  - API requer autenticação por token JWT. Implemente, mas deixe comentado o código.
-  - Rotas de exclusão devem atualizar o atributo `Active` da entidade para `false`. 
-- Eventos de CRUD gerados no Kafka:
+  - API requer autenticação por token JWT. Configure o filtro global de autenticação da aplicação, mas deixe-o comentado.
+  - Rotas de exclusão devem atualizar o atributo `Active` da entidade para `false`.
+  - Nomenclatura de métodos C# padrões para ações rest:
+    - `Create` para `/post`.
+    - `GetById` para `/get/{id}`.
+    - `List` para `/get`.
+    - `Update` para `/put`.
+    - `Remove` para `/delete`.
+  - **Rotas:**
+    - Utilizar kebab-case (sempre lowercase).
+    - Não adicionar prefixo `/api/`.
+    - Resource name das rotas devem ser no plural, exemplo: `/cidades/...`.
+    - O método list deve permitir filtrar por qualquer atributo.
+- **Kafka:**
+  - Gere eventos no Kafka para ações de create/update/delete.
   - Sempre adicionar o "Id" da entidade, como "Key" da mensagem do Kafka.
   - Nome do tópico segue o padrão `geografia.<nome-entidade>`. Exemplo: "geografia.pais"
-- Crie extensions methods para realizar conversões de DTOs.
-- Gere o arquivo de soluton no formato `slnx`.
-- Adicione XML documentation para todos os campos das entidades de dominio e DTO, e sempre que útil nos demais locais.
-- Não gere código de migrations, invés disso, execute a tool `dotnet ef` em meu computador para criar o arquivo de migration inicial.
-- Não criar arquivo `.gitignore`.
+- **Design de código C#:**
+  - Crie extensions methods para realizar conversões de DTOs.
+  - Gere o arquivo de soluton no formato `slnx`.
+  - Adicione XML documentation para todos os campos das entidades de dominio e DTO, e sempre que útil nos demais locais.
+  - Não gere código de migrations, invés disso, execute a tool `dotnet ef` em meu computador para criar o arquivo de migration inicial.
+- **Outras instruções:**
+  - Não criar arquivo `.gitignore`.
 
 ## Sobre a aplicação
 
