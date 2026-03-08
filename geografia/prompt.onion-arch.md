@@ -21,6 +21,7 @@
   - Código de testes unitários deve ficar na pasta `tests/`.
 - **Crie um projeto estruturado em Onion Architecture**:
   - Se baseie em boas práticas de desenvolvimento de software.
+  - Deve possuir as camadas: `Domain`, `Application`, `Infrastructure` e `API`.
 - **API:**
   - Utilize Controllers tradicionais para rotas de API.
   - API requer autenticação por token JWT. Configure o filtro global de autenticação da aplicação, mas deixe-o comentado.
