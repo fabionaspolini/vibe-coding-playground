@@ -7,8 +7,7 @@
   - Para projeto API:
     - Todas dependências de libraries deve ser na última versão estável disponível. 
     - `Microsoft.EntityFrameworkCore`: Library principal para comunicar com banco de dados. 
-    - `Microsoft.AspNetCore.OpenApi`: Library para gerar contrato swagger. Utilize **obrigatóriamente** ela.
-      - Essa library utiliza `services.AddOpenApi()` e `app.MapOpenApi()` para configurar o contrato swagger/openapi.
+    - `Swashbuckle.AspNetCore`: Library para gerar contrato swagger/open ai. Utilize **obrigatóriamente** ela e configure para usar UI.
   - Para projeto de testes:
     - `xunit.v3`: Library para testes unitários.
     - `FakeItEasy`: Library para mock de objetos.
