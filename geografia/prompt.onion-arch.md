@@ -19,9 +19,8 @@
 - **Diretórios**:
   - Código da aplicação deve ficar na pasta `src/`.
   - Código de testes unitários deve ficar na pasta `tests/`.
-- **Crie um projeto simples e direto ao ponto**:
-  - Se baseie em boas práticas de desenvolvimento de software, porém não as implemente literalmente.
-  - Evite interfaces e abstrações desnecessárias que as boas práticas possam lhe induzir a criar. Utilize isso apenas se for estritamente necessário.
+- **Crie um projeto estruturado em Onion Architecture**:
+  - Se baseie em boas práticas de desenvolvimento de software.
 - **API:**
   - Utilize Controllers tradicionais para rotas de API.
   - API requer autenticação por token JWT. Configure o filtro global de autenticação da aplicação, mas deixe-o comentado.
@@ -37,10 +36,14 @@
     - Não adicionar prefixo `/api/`.
     - Resource name das rotas devem ser no plural, exemplo: `/cidades/...`.
     - O método list deve permitir filtrar por qualquer atributo.
+  - Criar arquivo launchSettings.json com variável de ambiente `ASPNETCORE_ENVIRONMENT` = `Development`.
+  - No startup da aplicação deve ter execução de migrations se o ambiente for `Development`.
 - **Kafka:**
   - Gere eventos no Kafka para ações de create/update/delete.
   - Sempre adicionar o "Id" da entidade, como "Key" da mensagem do Kafka.
   - Nome do tópico segue o padrão `geografia.<nome-entidade>`. Exemplo: "geografia.pais"
+  - Produzir mensagem com método `Produce()` invés de `ProduceAsync()`.
+    - Adicionar método de callback logando eventuais falhas.
 - **Design de código C#:**
   - Crie extensions methods para realizar conversões de DTOs.
   - Gere o arquivo de soluton no formato `slnx`.
