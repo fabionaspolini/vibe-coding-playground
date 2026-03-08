@@ -27,7 +27,7 @@
   - Utilize Controllers tradicionais para rotas de API.
   - API requer autenticação por token JWT. Configure o filtro global de autenticação da aplicação, mas deixe-o comentado.
   - Rotas de exclusão devem atualizar o atributo `Active` da entidade para `false`.
-  - Nomenclatura de métodos C# padrões para ações rest:
+  - Nomes dos métodos das controllers devem respeitar o padrão:
     - `Create` para `/post`.
     - `GetById` para `/get/{id}`.
     - `List` para `/get`.
