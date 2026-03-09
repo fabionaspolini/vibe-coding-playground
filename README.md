@@ -19,15 +19,15 @@ Resumo de funcionalidades:
 
 ## Notas
 
-### v1 qwen-code_cloud-coder-model_simple-arch
+### [v01-qwen-code_cloud-coder-model_simple-arch](v01-qwen-code_cloud-coder-model_simple-arch)
 
 **Qwen code + Cloud coder + Simple Arch**
 
-### v2 qwen-code_cloud-coder-model_onion-arch
+### [v02-qwen-code_cloud-coder-model_onion-arch](v02-qwen-code_cloud-coder-model_onion-arch)
 
 **Qwen code + Cloud coder + Onion arch**
 
-### v3 - github-copilot_claude_haiku-4.5-onion-arch
+### [v03-github-copilot_claude-haiku-4.5_onion-arch](v03-github-copilot_claude-haiku-4.5_onion-arch)
 
 **GitHub Copilot + Claude Haiku 4.5 + Onion Arch**
 
@@ -47,7 +47,7 @@ Não atendeu muito bem a construção de um projeto grande.
 - ❌ Saiu com migration zuado.
 - ❌ Criou interfaces de repositório no projeto de infra, errou na arquitetura.
 
-### v4 - github-copilot-as-a-planer_claude_haiku-4.5-onion-arch
+### [v04-github-copilot-as-a-planer_claude-haiku-4.5_onion-arch](v04-github-copilot-as-a-planer_claude-haiku-4.5_onion-arch)
 
 **GitHub Copilot em modo Planner + Claude Haiku 4.5 + Onion Arch**
 
@@ -57,3 +57,7 @@ Esse modo do agente faz ele primeiro pensar para montar um plano completo da imp
 - ❌ Código não compila. problemas com dependências de swagger. Erro de build e erro de runtime no código entregue padrão.
 - ⚠️ Até implementou listagem com filtros no banco de dados, mas abusando de reflection (tb não sei se vai funciona essa implementação).
 - ❌ Alguns logs gerados com `Console.WriteLine()`.
+
+### [v05-github-copilot_claude-haiku-4.5_simple-arch](v05-github-copilot_claude-haiku-4.5_simple-arch)
+
+**GitHub Copilot + Claude Haiku 4.5 + Simple Arch**
