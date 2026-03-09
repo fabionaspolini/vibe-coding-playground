@@ -46,3 +46,9 @@ Não atendeu muito bem a construção de um projeto grande.
 - ✅ Anotou bem todos os métodos com os status codes possíveis de retorno.
 - ❌ Saiu com migration zuado.
 - ❌ Criou interfaces de repositório no projeto de infra, errou na arquitetura.
+
+### v4 - github-copilot-as-a-planer_claude_haiku-4.5-onion-arch
+
+**GitHub Copilot em modo Planner + Claude Haiku 4.5 + Onion Arch**
+
+Esse modo do agente faz ele primeiro pensar para montar um plano completo da implementação antes de começar a gerar código. Possui human in the middle para aprovar planejamento.
