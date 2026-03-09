@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GeografiaService.API/GeografiaService.API.csproj" />
+    <Project Path="src/GeografiaService.Application/GeografiaService.Application.csproj" />
+    <Project Path="src/GeografiaService.Domain/GeografiaService.Domain.csproj" />
+    <Project Path="src/GeografiaService.Infrastructure/GeografiaService.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/GeografiaService.Tests/GeografiaService.Tests.csproj" />
+  </Folder>
+</Solution>

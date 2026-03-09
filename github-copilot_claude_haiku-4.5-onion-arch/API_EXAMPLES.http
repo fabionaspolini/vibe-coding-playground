@@ -1,0 +1,217 @@
+@baseUrl = https://localhost:7200
+
+### ==== PAÍSES (Paises) ====
+
+### Criar um novo país - Brasil
+POST {{baseUrl}}/paises
+Content-Type: application/json
+
+{
+  "id": "BR",
+  "nome": "Brasil",
+  "codigoISO3": "BRA",
+  "codigoONU": 76,
+  "codigoDDI": "+55",
+  "codigoMoeda": "BRL",
+  "defaultLocale": "pt-BR"
+}
+
+### Criar outro país - Estados Unidos
+POST {{baseUrl}}/paises
+Content-Type: application/json
+
+{
+  "id": "US",
+  "nome": "Estados Unidos",
+  "codigoISO3": "USA",
+  "codigoONU": 840,
+  "codigoDDI": "+1",
+  "codigoMoeda": "USD",
+  "defaultLocale": "en-US"
+}
+
+### Obter país por ID
+GET {{baseUrl}}/paises/BR
+
+### Listar todos os países
+GET {{baseUrl}}/paises
+
+### Listar países com filtro por nome
+GET {{baseUrl}}/paises?nome=Brasil
+
+### Listar apenas países ativos
+GET {{baseUrl}}/paises?ativo=true
+
+### Atualizar um país
+PUT {{baseUrl}}/paises/BR
+Content-Type: application/json
+
+{
+  "nome": "República Federativa do Brasil",
+  "defaultLocale": "pt-BR"
+}
+
+### Remover um país (soft-delete)
+DELETE {{baseUrl}}/paises/BR
+
+
+### ==== ESTADOS (Estados) ====
+
+### Criar um estado - São Paulo
+POST {{baseUrl}}/estados
+Content-Type: application/json
+
+{
+  "id": "BR-SP",
+  "paisId": "BR",
+  "nome": "São Paulo",
+  "sigla": "SP",
+  "tipo": "State"
+}
+
+### Criar outro estado - Santa Catarina
+POST {{baseUrl}}/estados
+Content-Type: application/json
+
+{
+  "id": "BR-SC",
+  "paisId": "BR",
+  "nome": "Santa Catarina",
+  "sigla": "SC",
+  "tipo": "State"
+}
+
+### Criar estado nos EUA - Alaska
+POST {{baseUrl}}/estados
+Content-Type: application/json
+
+{
+  "id": "US-AK",
+  "paisId": "US",
+  "nome": "Alaska",
+  "sigla": "AK",
+  "tipo": "State"
+}
+
+### Obter estado por ID
+GET {{baseUrl}}/estados/BR-SP
+
+### Listar todos os estados
+GET {{baseUrl}}/estados
+
+### Listar estados do Brasil
+GET {{baseUrl}}/estados?paisId=BR
+
+### Listar estados por nome
+GET {{baseUrl}}/estados?nome=São%20Paulo
+
+### Atualizar um estado
+PUT {{baseUrl}}/estados/BR-SP
+Content-Type: application/json
+
+{
+  "nome": "Estado de São Paulo",
+  "sigla": "SP"
+}
+
+### Remover um estado (soft-delete)
+DELETE {{baseUrl}}/estados/BR-SP
+
+
+### ==== CIDADES (Cidades) ====
+
+### Criar uma cidade - São Paulo (cidade)
+POST {{baseUrl}}/cidades
+Content-Type: application/json
+
+{
+  "estadoId": "BR-SP",
+  "nome": "São Paulo",
+  "codigoPostal": "01310-100",
+  "latitude": -23.5505,
+  "longitude": -46.6333
+}
+
+### Criar outra cidade - Campinas
+POST {{baseUrl}}/cidades
+Content-Type: application/json
+
+{
+  "estadoId": "BR-SP",
+  "nome": "Campinas",
+  "codigoPostal": "13010-000",
+  "latitude": -22.9099,
+  "longitude": -47.0626
+}
+
+### Criar cidade em Santa Catarina - Florianópolis
+POST {{baseUrl}}/cidades
+Content-Type: application/json
+
+{
+  "estadoId": "BR-SC",
+  "nome": "Florianópolis",
+  "codigoPostal": "88000-000",
+  "latitude": -27.5973,
+  "longitude": -48.5497
+}
+
+### Criar cidade nos EUA - Juneau (capital do Alaska)
+POST {{baseUrl}}/cidades
+Content-Type: application/json
+
+{
+  "estadoId": "US-AK",
+  "nome": "Juneau",
+  "codigoPostal": "99801",
+  "latitude": 58.3019,
+  "longitude": -134.4197
+}
+
+### Obter cidade por ID
+GET {{baseUrl}}/cidades/{{cidadeId}}
+
+### Listar todas as cidades
+GET {{baseUrl}}/cidades
+
+### Listar cidades de um estado
+GET {{baseUrl}}/cidades?estadoId=BR-SP
+
+### Listar cidades por nome
+GET {{baseUrl}}/cidades?nome=Florianópolis
+
+### Listar apenas cidades ativas
+GET {{baseUrl}}/cidades?ativo=true
+
+### Atualizar uma cidade
+PUT {{baseUrl}}/cidades/{{cidadeId}}
+Content-Type: application/json
+
+{
+  "nome": "São Paulo - Metrópole",
+  "codigoPostal": "01310-100"
+}
+
+### Remover uma cidade (soft-delete)
+DELETE {{baseUrl}}/cidades/{{cidadeId}}
+
+
+### ==== EXEMPLOS DE FILTROS COMBINADOS ====
+
+### Filtrar países inativos
+GET {{baseUrl}}/paises?ativo=false
+
+### Filtrar estados ativos de um país específico
+GET {{baseUrl}}/estados?paisId=BR&ativo=true
+
+### Filtrar cidades de um estado específico que estão ativas
+GET {{baseUrl}}/cidades?estadoId=BR-SP&ativo=true
+
+
+### NOTAS:
+# 1. A variável {{cidadeId}} precisa ser substituída pelo UUID retornado na criação
+# 2. Use HTTPS com certificado auto-assinado (localhost)
+# 3. As operações DELETE (Remove) executam soft-delete, alterando o campo 'Ativo' para false
+# 4. Os filtros aceitam valores que contenham o padrão (case-insensitive)
+# 5. Swagger disponível em: https://localhost:7200/swagger/index.html
+

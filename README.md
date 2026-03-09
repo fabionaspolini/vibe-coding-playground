@@ -16,3 +16,13 @@ Resumo de funcionalidades:
 ## Padrão de nomenclatura das pasta
 
 `(agente-cli-codificador)_(modelo-llm)_(arquitetura)`
+
+## Notas
+
+### GitHub Copilot + Claude Haiku 4.5 + Onion Arch
+
+- ❌ Muitas iterações recursivas com LLM para tentar resolver problemas.
+    - ❌ Criou um caracter zuado num arquivo, que precisei corrigir manualmente durante as interações.
+- ✅ Gerou README.md bem detalhado.
+- ✅ Criou docker-compose.yml
+- ✅ Gerou documetações extras úteis: IMPLEMENTATION_SUMMARY.md, STRUCTURE.md, TROUBLESHOOTING.md, API_EXAMPLES.http
