@@ -19,10 +19,30 @@ Resumo de funcionalidades:
 
 ## Notas
 
-### GitHub Copilot + Claude Haiku 4.5 + Onion Arch
+### v1 qwen-code_cloud-coder-model_simple-arch
+
+**Qwen code + Cloud coder + Simple Arch**
+
+### v2 qwen-code_cloud-coder-model_onion-arch
+
+**Qwen code + Cloud coder + Onion arch**
+
+### v3 - github-copilot_claude_haiku-4.5-onion-arch
+
+**GitHub Copilot + Claude Haiku 4.5 + Onion Arch**
+
+Não atendeu muito bem a construção de um projeto grande.
 
 - ❌ Muitas iterações recursivas com LLM para tentar resolver problemas.
     - ❌ Criou um caracter zuado num arquivo, que precisei corrigir manualmente durante as interações.
 - ✅ Gerou README.md bem detalhado.
 - ✅ Criou docker-compose.yml
-- ✅ Gerou documetações extras úteis: IMPLEMENTATION_SUMMARY.md, STRUCTURE.md, TROUBLESHOOTING.md, API_EXAMPLES.http
+- ✅ Gerou documetações extras úteis: API_EXAMPLES.http, IMPLEMENTATION_SUMMARY.md, INDEX.md, STRUCTURE.md, START_HERE.txt, TROUBLESHOOTING.md
+- ❌ Errou algumas importações de libraries.
+- ❌ Rotas de listagem com filtros, trouxe pra memória invés de filtrar no DB.
+- ❌ Gerou método async para publicar no kafka, mesmo nao precisando ser na própria implementação realizada.
+- ❌ Gerou add async com entity framework.
+- ❌ Inventou uma syntax desnecessária no método `GetWhereAsync`.
+- ✅ Anotou bem todos os métodos com os status codes possíveis de retorno.
+- ❌ Saiu com migration zuado.
+- ❌ Criou interfaces de repositório no projeto de infra, errou na arquitetura.

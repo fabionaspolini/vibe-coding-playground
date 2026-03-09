@@ -5,6 +5,7 @@ using GeografiaService.Domain.Entities;
 using GeografiaService.Domain.Enums;
 using GeografiaService.Infrastructure.Events;
 using GeografiaService.Infrastructure.Repositories;
+using Microsoft.Extensions.Logging;
 using Xunit;
 
 namespace GeografiaService.Tests.Services;

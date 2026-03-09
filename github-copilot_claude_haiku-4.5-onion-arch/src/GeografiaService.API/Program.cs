@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 
 // Configurar Entity Framework e PostgreSQL
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? "Host=localhost;Port=5432;Database=Geografia;Username=postgres;Password=postgres";
+                       ?? throw new InvalidOperationException("Connection string 'DefaultConnection' não encontrada no appsettings.json.");
 builder.Services.AddDbContext<GeografiaDbContext>(options =>
     options.UseNpgsql(connectionString));
 

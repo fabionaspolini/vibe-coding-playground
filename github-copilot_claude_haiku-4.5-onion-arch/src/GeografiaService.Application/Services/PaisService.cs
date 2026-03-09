@@ -3,6 +3,7 @@ using GeografiaService.Application.Extensions;
 using GeografiaService.Domain.Entities;
 using GeografiaService.Infrastructure.Events;
 using GeografiaService.Infrastructure.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace GeografiaService.Application.Services;
 
