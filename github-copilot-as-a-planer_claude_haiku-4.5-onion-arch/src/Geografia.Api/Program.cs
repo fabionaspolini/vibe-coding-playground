@@ -31,15 +31,15 @@ builder.Services.AddScoped<ICidadeService, CidadeService>();
 builder.Services.AddControllers();
 
 // Adicionar Swagger/OpenAPI
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
-    {
-        Title = "API de Geografia",
-        Version = "v1",
-        Description = "API para gerenciamento de dados geográficos (países, estados e cidades)"
-    });
-});
+// builder.Services.AddSwaggerGen(options =>
+// {
+//     options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+//     {
+//         Title = "API de Geografia",
+//         Version = "v1",
+//         Description = "API para gerenciamento de dados geográficos (países, estados e cidades)"
+//     });
+// });
 
 var app = builder.Build();
 

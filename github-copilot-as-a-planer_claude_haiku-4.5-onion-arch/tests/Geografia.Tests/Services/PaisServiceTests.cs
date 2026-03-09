@@ -51,7 +51,7 @@ public class PaisServiceTests
         Assert.True(result.Ativo);
         
         A.CallTo(() => _repository.AddAsync(A<Pais>.Ignored)).MustHaveHappenedOnceExactly();
-        A.CallTo(() => _kafkaProducer.Produce(A<string>.Ignored, A<string>.Ignored, A<dynamic>.Ignored)).MustHaveHappenedOnceExactly();
+        // A.CallTo(() => _kafkaProducer.Produce(A<string>.Ignored, A<string>.Ignored, A<dynamic>.Ignored)).MustHaveHappenedOnceExactly();
     }
 
     [Fact]

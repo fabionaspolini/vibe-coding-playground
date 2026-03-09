@@ -1,3 +1,5 @@
+using Geografia.Domain.Entities;
+
 namespace Geografia.Api.Controllers;
 
 using Geografia.Application.DTOs;

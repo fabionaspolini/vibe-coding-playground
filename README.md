@@ -52,3 +52,8 @@ Não atendeu muito bem a construção de um projeto grande.
 **GitHub Copilot em modo Planner + Claude Haiku 4.5 + Onion Arch**
 
 Esse modo do agente faz ele primeiro pensar para montar um plano completo da implementação antes de começar a gerar código. Possui human in the middle para aprovar planejamento.
+
+- ❌ Migration zuado. Não respeitou instução de criar no meu ambiente com meu dotnet ef...
+- ❌ Código não compila. problemas com dependências de swagger. Erro de build e erro de runtime no código entregue padrão.
+- ⚠️ Até implementou listagem com filtros no banco de dados, mas abusando de reflection (tb não sei se vai funciona essa implementação).
+- ❌ Alguns logs gerados com `Console.WriteLine()`.
