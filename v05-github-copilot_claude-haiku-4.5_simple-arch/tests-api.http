@@ -1,0 +1,193 @@
+### Variáveis
+@baseUrl = http://localhost:5177
+@pais_id = BR
+@estado_id = BR-SP
+@cidade_id = 
+
+### ==========================================
+### TESTES DE PAÍSES
+### ==========================================
+
+### Criar País
+POST {{baseUrl}}/paises
+Content-Type: application/json
+
+{
+  "id": "BR",
+  "nome": "Brasil",
+  "codigoISO3": "BRA",
+  "codigoONU": 76,
+  "codigoDDI": "+55",
+  "codigoMoeda": "BRL",
+  "defaultLocale": "pt-BR"
+}
+
+### Criar outro País
+POST {{baseUrl}}/paises
+Content-Type: application/json
+
+{
+  "id": "US",
+  "nome": "Estados Unidos",
+  "codigoISO3": "USA",
+  "codigoONU": 840,
+  "codigoDDI": "+1",
+  "codigoMoeda": "USD",
+  "defaultLocale": "en-US"
+}
+
+### Obter País por ID
+GET {{baseUrl}}/paises/{{pais_id}}
+
+### Listar todos os Países
+GET {{baseUrl}}/paises
+
+### Listar Países ativos
+GET {{baseUrl}}/paises?ativo=true
+
+### Filtrar Países por nome
+GET {{baseUrl}}/paises?nome=Brasil
+
+### Atualizar País
+PUT {{baseUrl}}/paises/{{pais_id}}
+Content-Type: application/json
+
+{
+  "nome": "República Federativa do Brasil",
+  "defaultLocale": "pt-BR"
+}
+
+### Remover País (soft delete)
+DELETE {{baseUrl}}/paises/{{pais_id}}
+
+### ==========================================
+### TESTES DE ESTADOS
+### ==========================================
+
+### Criar Estado
+POST {{baseUrl}}/estados
+Content-Type: application/json
+
+{
+  "id": "BR-SP",
+  "paisId": "BR",
+  "nome": "São Paulo",
+  "sigla": "SP",
+  "tipo": "STATE"
+}
+
+### Criar outro Estado
+POST {{baseUrl}}/estados
+Content-Type: application/json
+
+{
+  "id": "BR-RJ",
+  "paisId": "BR",
+  "nome": "Rio de Janeiro",
+  "sigla": "RJ",
+  "tipo": "STATE"
+}
+
+### Criar Estado em outro País
+POST {{baseUrl}}/estados
+Content-Type: application/json
+
+{
+  "id": "US-AK",
+  "paisId": "US",
+  "nome": "Alaska",
+  "sigla": "AK",
+  "tipo": "STATE"
+}
+
+### Obter Estado por ID
+GET {{baseUrl}}/estados/{{estado_id}}
+
+### Listar todos os Estados
+GET {{baseUrl}}/estados
+
+### Listar Estados de um País
+GET {{baseUrl}}/estados?paisId=BR
+
+### Filtrar Estados por nome
+GET {{baseUrl}}/estados?nome=São Paulo
+
+### Atualizar Estado
+PUT {{baseUrl}}/estados/{{estado_id}}
+Content-Type: application/json
+
+{
+  "nome": "Estado de São Paulo"
+}
+
+### Remover Estado (soft delete)
+DELETE {{baseUrl}}/estados/{{estado_id}}
+
+### ==========================================
+### TESTES DE CIDADES
+### ==========================================
+
+### Criar Cidade
+POST {{baseUrl}}/cidades
+Content-Type: application/json
+
+{
+  "estadoId": "BR-SP",
+  "nome": "São Paulo",
+  "codigoPostal": "01310-100",
+  "latitude": -23.550520,
+  "longitude": -46.633308
+}
+
+### Criar outra Cidade
+POST {{baseUrl}}/cidades
+Content-Type: application/json
+
+{
+  "estadoId": "BR-SP",
+  "nome": "Campinas",
+  "codigoPostal": "13010-010",
+  "latitude": -22.889099,
+  "longitude": -47.057944
+}
+
+### Criar Cidade em outro Estado
+POST {{baseUrl}}/cidades
+Content-Type: application/json
+
+{
+  "estadoId": "BR-RJ",
+  "nome": "Rio de Janeiro",
+  "codigoPostal": "20040-020",
+  "latitude": -22.906847,
+  "longitude": -43.192729
+}
+
+### Obter Cidade por ID (substituir por UUID real)
+GET {{baseUrl}}/cidades/550e8400-e29b-41d4-a716-446655440000
+
+### Listar todas as Cidades
+GET {{baseUrl}}/cidades
+
+### Listar Cidades de um Estado
+GET {{baseUrl}}/cidades?estadoId=BR-SP
+
+### Filtrar Cidades por nome
+GET {{baseUrl}}/cidades?nome=São Paulo
+
+### Filtrar Cidades por código postal
+GET {{baseUrl}}/cidades?codigoPostal=01310-100
+
+### Atualizar Cidade
+PUT {{baseUrl}}/cidades/550e8400-e29b-41d4-a716-446655440000
+Content-Type: application/json
+
+{
+  "nome": "São Paulo - Capital",
+  "latitude": -23.550520,
+  "longitude": -46.633308
+}
+
+### Remover Cidade (soft delete)
+DELETE {{baseUrl}}/cidades/550e8400-e29b-41d4-a716-446655440000
+

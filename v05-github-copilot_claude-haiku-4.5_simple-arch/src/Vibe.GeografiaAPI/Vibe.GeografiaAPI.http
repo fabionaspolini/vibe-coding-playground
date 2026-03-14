@@ -1,0 +1,6 @@
+@Vibe.GeografiaAPI_HostAddress = http://localhost:5177
+
+GET {{Vibe.GeografiaAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

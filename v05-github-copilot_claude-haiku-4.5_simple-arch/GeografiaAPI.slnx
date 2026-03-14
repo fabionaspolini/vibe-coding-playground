@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Vibe.GeografiaAPI/Vibe.GeografiaAPI.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Vibe.GeografiaAPI.Tests/Vibe.GeografiaAPI.Tests.csproj" />
+  </Folder>
+</Solution>
