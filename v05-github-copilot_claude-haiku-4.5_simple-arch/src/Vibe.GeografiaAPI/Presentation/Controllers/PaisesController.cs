@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Vibe.GeografiaAPI.Application.Data;
 using Vibe.GeografiaAPI.Application.DTOs;
 using Vibe.GeografiaAPI.Application.Events;

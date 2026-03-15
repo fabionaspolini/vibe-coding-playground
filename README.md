@@ -61,3 +61,9 @@ Esse modo do agente faz ele primeiro pensar para montar um plano completo da imp
 ### [v05-github-copilot_claude-haiku-4.5_simple-arch](v05-github-copilot_claude-haiku-4.5_simple-arch)
 
 **GitHub Copilot + Claude Haiku 4.5 + Simple Arch**
+
+- ❌ Códigos com caracteres zuados no começo do arquivo.
+- ❌ Entregou projeto sem instalar dependência: Npgsql, Npgsql.EntityFrameworkCore, Microsoft.EntityFrameworkCore.Design.
+- ❌ Refrências não vinculadas entre testes → api, falta de vários usings.
+- ✅ Criou vários arquivos de aprio: markdowns, docker-compose, init.sh, api.http.
+- ❌ Não criou migrations.

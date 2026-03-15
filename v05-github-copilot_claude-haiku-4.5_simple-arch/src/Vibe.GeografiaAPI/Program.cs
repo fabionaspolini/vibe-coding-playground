@@ -9,8 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() 
-    { 
+    c.SwaggerDoc("v1", new()
+    {
         Title = "API de Gerenciamento de Dados Geográficos",
         Version = "v1",
         Description = "API REST para gerenciamento de países, estados e cidades com integração Kafka"
@@ -18,8 +18,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Configurar DbContext com PostgreSQL
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-    ?? "Host=localhost;Port=5432;Database=geografia;Username=postgres;Password=postgres";
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? "Host=localhost;Port=5432;Database=v05-github-copilot_claude-haiku-4.5_simple-arch;Username=postgres;Password=123456";
 
 builder.Services.AddDbContext<GeografiaDbContext>(options =>
     options.UseNpgsql(connectionString));

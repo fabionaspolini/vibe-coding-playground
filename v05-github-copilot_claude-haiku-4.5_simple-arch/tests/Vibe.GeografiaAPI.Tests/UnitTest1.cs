@@ -1,4 +1,4 @@
-﻿﻿using Vibe.GeografiaAPI.Application.DTOs;
+﻿using Vibe.GeografiaAPI.Application.DTOs;
 using Vibe.GeografiaAPI.Application.Extensions;
 using Vibe.GeografiaAPI.Domain.Entities;
 
