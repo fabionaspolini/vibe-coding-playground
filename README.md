@@ -67,3 +67,13 @@ Esse modo do agente faz ele primeiro pensar para montar um plano completo da imp
 - ❌ Refrências não vinculadas entre testes → api, falta de vários usings.
 - ✅ Criou vários arquivos de aprio: markdowns, docker-compose, init.sh, api.http.
 - ❌ Não criou migrations.
+
+### [v06-gemini-cli_gemini-3-flash-preview_simple-arch](v06-gemini-cli_gemini-3-flash-preview_simple-arch)
+
+**Gemini CLI + gemini-3-flash-preview + Simple Arch**
+
+- ✅ Criou migrations com comando local.
+- ✅ Utilizou `Produce()` para publicar no Kafka (overload que envia pra fila in memory do Confluent.Kafka).
+- ❌ Não gerou markdown extras com documentações.
+- ✅ Usou `Add()` normal no entity framework (não inventou de utilizar AddAsync onde não precisava).
+- ✅ Gerou código simples e funcional conforme o escopo requisitado. 
