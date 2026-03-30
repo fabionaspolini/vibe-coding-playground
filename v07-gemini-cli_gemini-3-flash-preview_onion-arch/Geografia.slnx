@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="src/Geografia.Domain/Geografia.Domain.csproj" />
+  <Project Path="src/Geografia.Application/Geografia.Application.csproj" />
+  <Project Path="src/Geografia.Infrastructure/Geografia.Infrastructure.csproj" />
+  <Project Path="src/Geografia.API/Geografia.API.csproj" />
+  <Project Path="tests/Geografia.UnitTests/Geografia.UnitTests.csproj" />
+</Solution>
